@@ -2,6 +2,8 @@
 
 WOB is a Julia-based optimization framework for day-ahead energy market bidding. It implements a data-driven Wasserstein DRO model to find the optimal energy nomination $n^*$ by hedging against the uncertainty of renewable generation and asymmetric dual-pricing imbalance markets.
 
+## Problem Formulation
+
 We consider the following minimization problem, noting $s$ the day-ahead price, $g$ the actual generation, and (PREP,PREN) the imbalance prices.
 
 $$\mathcal{L}(n,g,s,r) = -n\cdot s+\text{PREN}\cdot(n-g)^+ - \text{PREP}\cdot(g-n)^+$$
