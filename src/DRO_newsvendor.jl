@@ -24,11 +24,11 @@ function solve_dro_newsvendor(g_data::Vector{Float64}, epsilon::Float64, S::Floa
     d = [1.0, 0.0]
     
     @variables(model, begin
-        0 <= n <= 1          # decision variable
-        lambda >= 0               # Wasserstein dual variable
-        s[1:N]               # epigraph variables
-        gamma1[1:N, 1:2] >= 0    # duals for surplus 
-        gamma2[1:N, 1:2] >= 0    # duals for deficit 
+        0 <= n <= 1            # decision variable
+        lambda >= 0            # Wasserstein dual variable
+        s[1:N]                 # epigraph variables
+        gamma1[1:N, 1:2] >= 0  # duals for surplus 
+        gamma2[1:N, 1:2] >= 0  # duals for deficit 
     end)
     
     for i in 1:N
