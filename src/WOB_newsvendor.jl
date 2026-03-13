@@ -7,7 +7,7 @@ default(
     titlefontsize = 18,
     guidefontsize = 18,             
     tickfontsize = 16,             
-    legendfontsize = 16,          
+    legendfontsize = 12,          
     linewidth = 2,                  
     framestyle = :box,             
     grid = true,
