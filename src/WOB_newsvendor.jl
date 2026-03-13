@@ -44,14 +44,14 @@ function solve_dro_newsvendor(g_data::Vector{Float64}, w::Vector{Float64}, epsil
         g_i = g_data[i]
         slack = d .- C .* g_i
         
-        # Surplus
+        # Surplus (g > n)
         loss1 = -S * n + PREP * (n - g_i)
         B1 = -PREP
         @constraint(model, loss1 + dot(gamma1[i, :], slack) <= s[i])
         @constraint(model, C' * gamma1[i, :] - B1 <= lambda)
         @constraint(model, -(C' * gamma1[i, :] - B1) <= lambda)
         
-        # Deficit 
+        # Deficit (g < n)
         loss2 = -S * n + PREN * (n - g_i)
         B2 = -PREN
         @constraint(model, loss2 + dot(gamma2[i, :], slack) <= s[i])
