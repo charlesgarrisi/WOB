@@ -70,7 +70,7 @@ function solve_dro_2D_mc(g_data::Vector{Float64}, S_data::Vector{Float64}, epsil
 end
 
 # params
-N_samples = 1000
+N_samples = 10000
 delta_surplus = 10.0
 delta_deficit = 5.0
 S_max = 400.0
@@ -122,16 +122,16 @@ for eps in epsilons
 end
 
 # plots
-p1 = plot(results_pos.eps, results_pos.profit, lw=2, marker=:+, label="DRO-pos", xlabel=L"Radius $\epsilon$", ylabel="Profit")
+p1 = plot(results_pos.eps, results_pos.profit, lw=2, marker=:+, legend=:topright, label="DRO-pos", xlabel=L"Radius $\epsilon$", ylabel="Profit")
 plot!(p1, results_neg.eps, results_neg.profit, lw=2, marker=:+, label="DRO-neg")
 hline!(p1, [profit_theory_pos], label="SAA", ls=:dash, color=:green, lw=2)
 
-p2 = plot(results_pos.eps, results_pos.n_opt, lw=2, marker=:+, label="DRO-pos", xlabel=L"Radius $\epsilon$", ylabel=L"Optimal nomination $n^{\star}$", ylims=(0.0, 1.0))
+p2 = plot(results_pos.eps, results_pos.n_opt, lw=2, marker=:+, legend=:topright, label="DRO-pos", xlabel=L"Radius $\epsilon$", ylabel=L"Optimal nomination $n^{\star}$", ylims=(0.0, 1.0))
 plot!(p2, results_neg.eps, results_neg.n_opt, lw=2, marker=:+, label="DRO-neg")
 hline!(p2, [n_theory_pos], label="SAA", ls=:dash, color=:green, lw=2)
 
-savefig(p1, "profit_sensitivity_DRO_stochastic_prices.pdf")
-savefig(p2, "decision_sensitivity_DRO_stochastic_prices.pdf")
+savefig(p1, "profit_sensitivity_WOB_stochastic_prices.pdf")
+savefig(p2, "decision_sensitivity_WOB_stochastic_prices.pdf")
 
 display(p1)
 display(p2)
