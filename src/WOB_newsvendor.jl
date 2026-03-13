@@ -28,7 +28,7 @@ function solve_dro_newsvendor(g_data::Vector{Float64}, w::Vector{Float64}, epsil
     model = Model(HiGHS.Optimizer)
     set_silent(model)
     
-    # Support constraints for g: [0, 1] -> C*g <= d
+    # support bounds: C * g <= d
     C = [1.0, -1.0] 
     d = [1.0, 0.0]
     
