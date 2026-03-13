@@ -70,7 +70,7 @@ function solve_dro_2D_mc(g_data::Vector{Float64}, S_data::Vector{Float64}, epsil
 end
 
 # params
-N_samples = 10000
+N_samples = 1000
 delta_surplus = 10.0
 delta_deficit = 5.0
 S_max = 400.0
