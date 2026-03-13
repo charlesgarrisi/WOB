@@ -68,11 +68,11 @@ end
 # params
 mu_g, sigma_g = 0.7, 0.1
 S_det, PREP_det, PREN_det = 65.0, 55.0, 75.0 
+epsilons = 0.0:0.01:1.0
 
 law = Normal(mu_g, sigma_g)
 g_nodes_raw, g_weights = gaussian_quadrature(law, 15) 
 g_nodes = clamp.(g_nodes_raw, 0.0, 1.0)
-epsilons = 0.0:0.01:1.0
 
 # Newsvendor theoretical baseline
 target_prob = (S_det - PREP_det) / (PREN_det - PREP_det)
