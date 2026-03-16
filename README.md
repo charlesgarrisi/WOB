@@ -4,9 +4,12 @@ WOB is a Julia-based optimization framework for day-ahead energy market bidding.
 
 ## Problem Formulation
 
-We consider the following minimization problem, noting $s$ the day-ahead price, $g$ the actual generation, and $n$ is the day-ahead nomination. The imbalance settlement is governed by the positive and negative imbalance prices ($\text{PREP}$ and $\text{PREN}$ respectively).
+We consider the expected profit maximization problem for a fixed delivery hour. 
+Let $s$ denote the day-ahead clearing price, $g$ the actual (realized) generation, and $n$ the day-ahead nomination. 
+The imbalance settlement is governed by the positive and negative imbalance prices, denoted $\text{PREP}$ (remuneration for surplus) and $\text{PREN}$ (penalty for deficit), respectively. 
+Under normal market conditions, we assume $\text{PREP} \le s \le \text{PREN}$. The ex-post profit function is given by:
 
-$$\mathcal{L}(n,g,s,r) = -n\cdot s+\text{PREN}\cdot(n-g)^+ - \text{PREP}\cdot(g-n)^+$$
+$$\mathcal{R}(n, g, s, \text{PREP}, \text{PREN}) = s \cdot n + \text{PREP}\cdot (g - n)^+ - \text{PREN}\cdot (n - g)^+$$
 
 To start with, we use generated data and do not allow negative prices. We proceed incrementally, in the following order.
 
