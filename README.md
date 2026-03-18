@@ -13,7 +13,7 @@ $$\mathcal{R}(n, g, s, \text{PREP}, \text{PREN}) = s \cdot n + \text{PREP}\cdot 
 
 To start with, we use generated data and do not allow negative prices. We proceed incrementally, in the following order.
 
-- 1°) **Stochastic generation only** $\leadsto$ WOB_newsvendor.jl
+- 1°) **Stochastic generation only**, i.e. standard Newsvendor, solved with an explicit formula $\leadsto$ see WOB_newsvendor.jl
 - 2°) **Stochastic day-ahead prices** with PREP and PREN modeled as linear offsets of the day-ahead price, e.g., $\text{PREP} = s - \delta_{\text{surplus}}$ and $\text{PREN} = s + \delta_{\text{deficit}}$ $\leadsto$ WOB_stochastic_prices.jl
 - 3°) **Stochastic imbalance prices** $\leadsto$ WOB_stochastic_imbal.jl
 
