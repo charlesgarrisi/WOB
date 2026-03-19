@@ -28,7 +28,7 @@ function compute_oos_profit(n::Float64, g::Vector{Float64}, S::Vector{Float64}, 
     return mean(profits)
 end
 
-function solve_empirical_saa_closed_form(g_train, delta_surp, delta_def)
+function solve_closed_form(g_train, delta_surp, delta_def)
     target_prob = delta_surp / (delta_surp + delta_def)
     n_opt = quantile(g_train, target_prob) 
     return n_opt
